@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkanoid Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>    
+</head>
+<body>
+    <audio id="musicaIntro" src="./sonidos/Intro.mp3" loop></audio>
+
+    <!--START-->
+    <div id="loadingScreen">
+        <div>
+            <img src="./imagenes/title.png" alt="Arkanoid" width="500px">
+        </div>
+        <div class="vertical-center">
+            <button id="startButton" class="hover-button">EMPEZAR</button>
+        </div>
+        <p id="creditos">© MARCOS, IAN, LAURA 2024 <br> ALL RIGHTS RESERVED</p>
+    </div>
+
+
+
+     <!--MENÚ-->
+    <div id="cinematicScreen" style="display: none;">
+        <div class="typing-container">
+            <p id="typingContainer" class="typing-text"></p>
+        </div>
+    
+        <div class="retro-move-container">
+            <img src="./imagenes/nave.png" alt="Arkanoid" class="retro-move-img">
+        </div>
+        <button id="startGameButton" class="hover-button">CONTINUAR</button>
+    </div>
+
+
+     <!--JUEGO-->
+
+    <div id="juego" style="display: none;">
+        <div class="c-subscribe-box u-align-center">
+            <div class="rainbow"><span></span><span></span></div>
+            <div class="c-subscribe-box__wrapper">
+                <canvas class="box" id="gameCanvas" width="600" height="800"></canvas>
+                <img hidden id="sprites" src="./imagenes/sprite.png" alt="Sprites">
+            </div>
+          </div>
+        
+        <div id="puntuacion">
+            <div id="score-component"></div>
+        </div>
+        <audio id="musicaJuego" src="./sonidos/Arkanoid.mp3" loop></audio>
+    </div>
+
+    <!-- PANTALLA DE REGISTRO -->
+    <div id="PantallaVictoria" style="display: none;">
+        <div class="arcade-ui">
+            <h1>¡Felicidades!</h1>
+            <h2>¡Eres un maestro Arkanoid!</h2>
+            <p>Ingresa tus iniciales:</p>
+            <div class="initials-input">
+                <input class="initial" id="initial1" type="text" maxlength="1" />
+                <input class="initial" id="initial2" type="text" maxlength="1" />
+                <input class="initial" id="initial3" type="text" maxlength="1" />
+            </div><br>
+            <div class="buttons">
+                <button id="submitScoreBtn">Guardar</button>
+                <button id="salir">Salir</button>
+            </div>
+        </div>
+    </div>
+
+    <!--PANTALLA SCORE RANKING-->
+    <div id="PantallaRanking" style="display: none;">
+        <div class="arcade-ui">
+            <h1>RANKING</h1>
+            <h2>HALL OF FAME!</h2>            
+            <div id="table" class="initials-input">                
+            </div><br>
+            <div class="buttons">                
+                <button id="salirRanking">Salir</button>
+            </div>                      
+        </div>
+    </div>
+
+    <!--GAME OVER-->
+    <div id="gameOver" style="display: none;">
+        <h1>Game Over</h1>
+        <p>¿Quieres empezar de nuevo la partida?</p>
+            <div class="buttons">
+                <button id="btnReinicio">Sí</button>
+                <button id="btnMenu">No</button>
+            </div>
+            <div class="countdown">
+                <p>Volviendo al menú en <span id="countdown-number">15</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="classes.js" type="module"></script>
+    <script src="score.js" type="text/babel"></script>
+    <script src="main.js" type="module"></script>
+
+</body>
+</html>
