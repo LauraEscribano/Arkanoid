@@ -1,0 +1,3 @@
+-- RENOMBRAR ESTE ARCHIVO A .env --
+MONGO_URI=mongodb://localhost:27017/arkanoid
+PORT=5000
